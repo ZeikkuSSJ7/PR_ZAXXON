@@ -19,6 +19,7 @@ public class NaveController : MonoBehaviour
     private float boundsY = 20f;
     private float rotateTime = 0f;
     private Quaternion rotationLimit = Quaternion.Euler(0f, 0f, 50f);
+    private float rotationSettleSpeed = 2f;
 
     // Update is called once per frame
     void Update()
@@ -58,7 +59,7 @@ public class NaveController : MonoBehaviour
             if (!Input.GetButton("Horizontal") && !rotateBarrel)
             {
                 if (rotation)
-                    rotation.transform.rotation = Quaternion.Lerp(rotation.transform.rotation, Quaternion.identity, rotateTime);
+                    rotation.transform.rotation = Quaternion.Slerp(rotation.transform.rotation, Quaternion.identity, rotateTime * rotationSettleSpeed);
                 rotateTime += Time.deltaTime;
             }
         }
@@ -77,7 +78,7 @@ public class NaveController : MonoBehaviour
                 rotateCondition = rotation.transform.rotation.z < rotationLimit.z;
             if (rotateCondition)
             {
-                rotation.transform.Rotate(0f, 0f, 2f * -movX);
+                rotation.transform.Rotate(0f, 0f, 5f * -movX);
                 rotateTime = 0;
             }
         }
