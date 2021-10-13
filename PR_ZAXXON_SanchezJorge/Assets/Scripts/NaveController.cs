@@ -172,17 +172,11 @@ public class NaveController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Reload()
     {
-        if (other.CompareTag("Obstaculo"))
-        {
-            Destroy(rotation);
-            Invoke("Reload", 2f);
-        }
+        Destroy(rotation);
+        Invoke("Recarga", 2f);
     }
 
-    void Reload()
-    {
-        SceneManager.LoadScene("Nivel 1");
-    }
+    void Recarga() { SceneManager.LoadScene("Nivel 1"); }
 }
