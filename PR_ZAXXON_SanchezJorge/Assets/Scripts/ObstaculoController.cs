@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObstaculoController : MonoBehaviour
 {
-    public float velocidad;
+    public static float velocidad = 50;
+    public int vida;
     private static float tiempo = 0.01f;
     private float tiempoOffset = 0.05f;
     // Start is called before the first frame update
@@ -16,12 +17,21 @@ public class ObstaculoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * Time.deltaTime * velocidad * tiempo);
+        transform.Translate(Vector3.back * Time.deltaTime * velocidad * tiempo, Space.World);
     }
 
     IEnumerator AumentarVelocidad()
     {
         tiempo += tiempoOffset;
         yield return new WaitForSeconds(10f);
+    }
+
+    public void DecreaseLife()
+    {
+        vida--;
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

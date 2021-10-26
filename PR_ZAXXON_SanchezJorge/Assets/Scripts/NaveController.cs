@@ -8,6 +8,7 @@ public class NaveController : MonoBehaviour
     public float velocidadHorizontal;
     public float velocidadVertical;
     public GameObject rotation;
+    public ParticleSystem explosion;
 
     private float barrelTime = 0;
     private bool barrelPressed = false;
@@ -21,6 +22,11 @@ public class NaveController : MonoBehaviour
     private Quaternion rotationLimit = Quaternion.Euler(0f, 0f, 50f);
     private float rotationSettleSpeed = 2f;
 
+    private void Start()
+    {
+        explosion.Stop();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -31,7 +37,7 @@ public class NaveController : MonoBehaviour
 
         Pause();
 
-        if (!zaWarudo)
+        if (!zaWarudo && SpawnerController.canSpawn)
         {
             // check button direction pressed
             if (bumpR && !bumpL)
@@ -174,9 +180,16 @@ public class NaveController : MonoBehaviour
 
     public void Reload()
     {
-        Destroy(rotation);
+        ObstaculoController.velocidad = 0;
+        SpawnerController.canSpawn = false;
+        explosion.Play();
+        rotation.GetComponent<MeshRenderer>().enabled = false;
         Invoke("Recarga", 2f);
     }
 
-    void Recarga() { SceneManager.LoadScene("Nivel 1"); }
+    void Recarga() {
+        ObstaculoController.velocidad = 50;
+        SpawnerController.canSpawn = true;
+        SceneManager.LoadScene("Nivel 1"); 
+    }
 }

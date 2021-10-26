@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578205303012162787}
-  - component: {fileID: 4315897757314602659}
-  - component: {fileID: 7829283436143536122}
   m_Layer: 0
   m_Name: Pilar
   m_TagString: Untagged
@@ -34,32 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4315897757314602659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578205303012162796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 413ca1c148ee247458effeb616e7227d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 100
---- !u!65 &7829283436143536122
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578205303012162796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 27.082058, y: 59.310314, z: 1}
-  m_Center: {x: 0.20903826, y: 19.934584, z: 0}
 --- !u!1 &1578205303800434857
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +44,7 @@ GameObject:
   - component: {fileID: 1578205303800434860}
   - component: {fileID: 1578205303800434861}
   - component: {fileID: 1578205303800434862}
+  - component: {fileID: 1637604071742882783}
   m_Layer: 0
   m_Name: Pilar
   m_TagString: Obstaculo
@@ -155,6 +128,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1637604071742882783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578205303800434857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413ca1c148ee247458effeb616e7227d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 1
 --- !u!1 &1578205304776796044
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +153,7 @@ GameObject:
   - component: {fileID: 1578205304776796039}
   - component: {fileID: 1578205304776796032}
   - component: {fileID: 1578205304776796033}
+  - component: {fileID: 8198434814688516485}
   m_Layer: 0
   m_Name: Pilar (1)
   m_TagString: Obstaculo
@@ -250,3 +237,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8198434814688516485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578205304776796044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413ca1c148ee247458effeb616e7227d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 1
