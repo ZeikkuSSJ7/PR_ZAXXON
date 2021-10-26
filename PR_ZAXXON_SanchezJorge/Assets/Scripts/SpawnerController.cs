@@ -31,6 +31,9 @@ public class SpawnerController : MonoBehaviour
                 objectToSpawn = obstaculos[3];
             else if (level > 4 && chance >= 0.9 && chance < 1)
                 objectToSpawn = obstaculos[4];
+
+            if (chance > 0.95)
+                objectToSpawn = obstaculos[5];
             if (canSpawn)
                 Instantiate(objectToSpawn, new Vector3(transform.position.x + Random.Range(-40, 40), transform.position.y + Random.Range(0, 20), transform.position.z), transform.rotation, transform);
         }
