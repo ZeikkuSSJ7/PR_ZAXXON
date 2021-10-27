@@ -9,6 +9,7 @@ public class NaveController : MonoBehaviour
     public float velocidadVertical;
     public GameObject rotation;
     public ParticleSystem explosion;
+    public int lifes = 3;
 
     private float barrelTime = 0;
     private bool barrelPressed = false;

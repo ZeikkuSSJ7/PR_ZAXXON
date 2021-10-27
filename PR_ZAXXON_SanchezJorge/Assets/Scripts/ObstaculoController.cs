@@ -6,24 +6,28 @@ public class ObstaculoController : MonoBehaviour
 {
     public static float velocidad = 50;
     public int vida;
-    private static float tiempo = 0.01f;
-    private float tiempoOffset = 0.05f;
+    private static float tiempoOffset = 5f;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(AumentarVelocidad());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * Time.deltaTime * velocidad * tiempo, Space.World);
+        transform.Translate(Vector3.back * Time.deltaTime * velocidad, Space.World);
+        AumentarVelocidad();
     }
 
-    IEnumerator AumentarVelocidad()
+    void AumentarVelocidad()
     {
-        tiempo += tiempoOffset;
-        yield return new WaitForSeconds(10f);
+        tiempoOffset -= Time.deltaTime;
+        if (tiempoOffset < 0)
+        {
+            velocidad += 5;
+            tiempoOffset = 5;
+        }
     }
 
     public void DecreaseLife()

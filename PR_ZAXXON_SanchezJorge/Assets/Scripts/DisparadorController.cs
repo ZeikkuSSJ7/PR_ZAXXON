@@ -5,6 +5,7 @@ using UnityEngine;
 public class DisparadorController : MonoBehaviour
 {
     public GameObject disparo;
+    public Camera camera;
 
     private float waitTime = 0.2f;
     private float currentTime;
@@ -21,7 +22,7 @@ public class DisparadorController : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                Destroy(Instantiate(disparo, transform.position, transform.rotation), 3f);
+                Destroy(Instantiate(disparo, transform.position, transform.rotation), 1f);
                 currentTime = waitTime;
             }
         }
@@ -32,8 +33,21 @@ public class DisparadorController : MonoBehaviour
     public IEnumerator PowerUp()
     {
         waitTime = 0.05f;
+        yield return FOV(100);
         yield return new WaitForSeconds(10f);
+        yield return FOV(60);
         waitTime = 0.2f;
 
+    }
+
+    IEnumerator FOV(int fov)
+    {
+        int add = -1;
+        if (fov > 60) add = 1;
+        while (camera.fieldOfView != fov)
+        {
+            camera.fieldOfView += add; 
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }

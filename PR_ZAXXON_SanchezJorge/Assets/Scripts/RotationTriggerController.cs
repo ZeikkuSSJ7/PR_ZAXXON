@@ -11,7 +11,10 @@ public class RotationTriggerController : MonoBehaviour
     {
         if (other.CompareTag("Obstaculo"))
         {
-            parent.GetComponent<NaveController>().Reload();
+            NaveController playerScript = parent.GetComponent<NaveController>();
+            playerScript.lifes--;
+            if (playerScript.lifes == 0)
+                parent.GetComponent<NaveController>().Reload();
         }
 
         if (other.gameObject.CompareTag("PowerUp"))
