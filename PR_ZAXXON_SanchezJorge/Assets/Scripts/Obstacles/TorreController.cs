@@ -15,7 +15,7 @@ public class TorreController : MonoBehaviour
     void Update()
     {
         if (time > 0)
-            transform.Rotate(Quaternion.Euler(-0.1f, 0, 0.1f).eulerAngles);
+            transform.Rotate(Quaternion.Euler(-0.1f, 0, 0.1f).eulerAngles); // rotates boulder based on time until it is ~horizontal
         time -= Time.deltaTime;
     }
 }

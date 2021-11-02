@@ -163,6 +163,7 @@ public class NaveController : MonoBehaviour
 
     void Pause()
     {
+        // pauses the game
         if (Input.GetButtonDown("Start"))
         {
             if (!zaWarudo)
@@ -181,6 +182,7 @@ public class NaveController : MonoBehaviour
 
     public void Reload()
     {
+        // stops obstacles, spawner, plays explosion and disables spaceship before reloading
         ObstaculoController.velocidad = 0;
         SpawnerController.canSpawn = false;
         explosion.Play();
@@ -189,8 +191,9 @@ public class NaveController : MonoBehaviour
     }
 
     void Recarga() {
+        // resets speed, spawner and reloads
         ObstaculoController.velocidad = 50;
         SpawnerController.canSpawn = true;
-        SceneManager.LoadScene("Nivel 1"); 
+        SceneManager.LoadScene(1); 
     }
 }

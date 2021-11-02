@@ -14,15 +14,14 @@ public class DisparoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          
-        transform.Translate(Vector3.forward * Time.deltaTime * velocidad);
+        transform.Translate(Vector3.forward * Time.deltaTime * velocidad); // moves shot forward
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstaculo"))
         {
-            other.gameObject.GetComponent<ObstaculoController>().DecreaseLife();
+            other.gameObject.GetComponent<ObstaculoController>().DecreaseLife(); // reduces life of obstacle and disappears
             Destroy(gameObject);
         }
     }

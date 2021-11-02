@@ -16,7 +16,7 @@ public class ObstaculoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * Time.deltaTime * velocidad, Space.World);
+        transform.Translate(Vector3.back * Time.deltaTime * velocidad, Space.World); // moves obstacle forward as well as incrementing speed
         AumentarVelocidad();
     }
 
@@ -25,13 +25,14 @@ public class ObstaculoController : MonoBehaviour
         tiempoOffset -= Time.deltaTime;
         if (tiempoOffset < 0)
         {
-            velocidad += 5;
-            tiempoOffset = 5;
+            velocidad += 2;
+            tiempoOffset = 5; // ups speed every 5 seconds
         }
     }
 
     public void DecreaseLife()
     {
+        // decreases obstacle life and destroys it if life == 0
         vida--;
         if (vida <= 0)
         {

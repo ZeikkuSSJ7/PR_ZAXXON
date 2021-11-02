@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BolilloController : MonoBehaviour
+public class TitleScreenRotateController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,6 @@ public class BolilloController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Quaternion.Euler(1, 1, 1).eulerAngles);
+        transform.Rotate(Quaternion.Euler(0, 0.1f, 0).eulerAngles, Space.World); // rotates spaceship on title screen
     }
 }

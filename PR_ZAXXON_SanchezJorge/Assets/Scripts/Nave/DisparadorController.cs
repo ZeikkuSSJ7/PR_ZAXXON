@@ -22,7 +22,7 @@ public class DisparadorController : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                Destroy(Instantiate(disparo, transform.position, transform.rotation), 1f);
+                Destroy(Instantiate(disparo, transform.position, transform.rotation), 2f);
                 currentTime = waitTime;
             }
         }
@@ -32,17 +32,17 @@ public class DisparadorController : MonoBehaviour
 
     public IEnumerator PowerUp()
     {
-        waitTime = 0.05f;
-        yield return FOV(100);
-        yield return new WaitForSeconds(10f);
-        yield return FOV(60);
-        waitTime = 0.2f;
+        waitTime = 0.05f; // reduce shoot wait time
+        yield return FOV(100); // puts fov to 100
+        yield return new WaitForSeconds(10f); // waits
+        yield return FOV(60); // returns fov
+        waitTime = 0.2f; // returns shoot time
 
     }
 
     IEnumerator FOV(int fov)
     {
-        int add = -1;
+        int add = -1; // depending of returning or not, check if adding or substracting
         if (fov > 60) add = 1;
         while (camera.fieldOfView != fov)
         {
