@@ -6,16 +6,24 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     public MeshRenderer playerMesh;
-    public Text score;
+    public Text score, level;
     public NaveController playerScript;
     public Image[] lifeImages;
+    public static int scoreValue;
 
     // Update is called once per frame
     void Update()
     {
+        level.text = "Level: " + GameManager.level;
         if (playerMesh.enabled)
-            score.text = "Score: " + Mathf.Round(ObstaculoController.velocidad * Time.timeSinceLevelLoad); // update distance
-        if (playerScript.lifes < 3) 
+        {
+            scoreValue = Mathf.RoundToInt(ObstaculoController.velocidad * Time.timeSinceLevelLoad);
+            score.text = "Score: " + scoreValue;// update distance
+        }
+        if (playerScript.lifes < 3)
+        {
             lifeImages[playerScript.lifes].enabled = false; // disable lifes
+            PlayerPrefs.SetInt("valorPropio", scoreValue);
+        }
     }
 }

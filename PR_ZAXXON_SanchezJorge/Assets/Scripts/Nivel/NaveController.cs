@@ -26,6 +26,7 @@ public class NaveController : MonoBehaviour
     private void Start()
     {
         explosion.Stop();
+        if (GameManager.selectedMaterial) rotation.GetComponent<Renderer>().material = GameManager.selectedMaterial;
     }
 
     // Update is called once per frame
@@ -194,6 +195,9 @@ public class NaveController : MonoBehaviour
         // resets speed, spawner and reloads
         ObstaculoController.velocidad = 50;
         SpawnerController.canSpawn = true;
+        GameManager.level = 1;
+        SocialCreditController.lastLevel = 1;
+        SoundController.lastLevel = 1;
         SceneManager.LoadScene(1); 
     }
 }

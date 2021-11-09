@@ -7,6 +7,7 @@ public class RotationTriggerController : MonoBehaviour
 {
     public GameObject parent;
     public DisparadorController disparador;
+    public AudioSource powerUp;
     private void OnTriggerEnter(Collider other)
     {
         // checks collision with obstacle and reduces life, kills if 0 life
@@ -23,6 +24,7 @@ public class RotationTriggerController : MonoBehaviour
         if (other.gameObject.CompareTag("PowerUp"))
         {
             Destroy(other.gameObject);
+            GetComponent<AudioSource>().Play();
             StartCoroutine(disparador.PowerUp());
         }
     }

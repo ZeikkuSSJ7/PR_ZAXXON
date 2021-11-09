@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class DisparoController : MonoBehaviour
 {
-    public int velocidad = 50;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int velocidad = 100;
 
     // Update is called once per frame
     void Update()

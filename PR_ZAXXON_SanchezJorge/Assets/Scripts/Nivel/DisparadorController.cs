@@ -7,7 +7,7 @@ public class DisparadorController : MonoBehaviour
     public GameObject disparo;
     public Camera camera;
 
-    private float waitTime = 0.2f;
+    private float waitTime = 0.15f;
     private float currentTime;
     // Start is called before the first frame update
     void Start()
