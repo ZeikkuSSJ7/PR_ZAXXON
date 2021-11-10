@@ -198,6 +198,6 @@ public class NaveController : MonoBehaviour
         GameManager.level = 1;
         SocialCreditController.lastLevel = 1;
         SoundController.lastLevel = 1;
-        SceneManager.LoadScene(1); 
+        SceneManager.LoadScene(3); 
     }
 }

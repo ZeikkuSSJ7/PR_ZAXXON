@@ -23,7 +23,9 @@ public class HUDController : MonoBehaviour
         if (playerScript.lifes < 3)
         {
             lifeImages[playerScript.lifes].enabled = false; // disable lifes
-            PlayerPrefs.SetInt("valorPropio", scoreValue);
+            int currentScore = PlayerPrefs.GetInt("valorPropio", scoreValue);
+            if (scoreValue > currentScore)
+                PlayerPrefs.SetInt("valorPropio", scoreValue);
         }
     }
 }
