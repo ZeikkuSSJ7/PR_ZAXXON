@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 5001882001829343842}
-  disparador: {fileID: 0}
+  disparador: {fileID: 5001882000776256458}
   powerUp: {fileID: 943169811377084812}
 --- !u!1001 &5001882000668526439
 PrefabInstance:
@@ -243,6 +243,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5001882001829343844}
     m_Modifications:
+    - target: {fileID: 8147718176167719720, guid: ac97df0866a14a947b73d44bc5e54ab2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e97f0523f800f4d4786f740d7ffd7f2f, type: 2}
+    - target: {fileID: 8147718176167719721, guid: ac97df0866a14a947b73d44bc5e54ab2, type: 3}
+      propertyPath: ForceModule.y.scalar
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147718176167719721, guid: ac97df0866a14a947b73d44bc5e54ab2, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2.55
+      objectReference: {fileID: 0}
     - target: {fileID: 8147718176167719723, guid: ac97df0866a14a947b73d44bc5e54ab2, type: 3}
       propertyPath: m_Name
       value: Explosion
@@ -367,12 +379,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 4b3caa51455e0b64d814af3524acefdc, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4b3caa51455e0b64d814af3524acefdc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 82cb4d7fa4f67214a83ee8a405a99363, type: 2}
     - target: {fileID: 919132149155446097, guid: 4b3caa51455e0b64d814af3524acefdc, type: 3}
       propertyPath: m_Name
       value: Nave
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b3caa51455e0b64d814af3524acefdc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3caa51455e0b64d814af3524acefdc, type: 3}

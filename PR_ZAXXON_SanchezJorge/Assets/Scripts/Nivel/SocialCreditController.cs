@@ -27,9 +27,9 @@ public class SocialCreditController : MonoBehaviour
     public IEnumerator Animate()
     {
         thisText.CrossFadeAlpha(1, 1, true);
-        yield return new WaitForSeconds(3f);
-        socialCreditText.CrossFadeAlpha(1, 2, true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        socialCreditText.CrossFadeAlpha(1, 1, true);
+        yield return new WaitForSeconds(1f);
         thisText.CrossFadeAlpha(0, 1, true);
         socialCreditText.CrossFadeAlpha(0, 1, true);
     }

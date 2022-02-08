@@ -66,7 +66,6 @@ public class NaveController : MonoBehaviour
             // do lerp to origin
             if ((movX < 0.01 && movX > -0.01) && !rotateBarrel)
             {
-                Debug.Log("hola");
                 if (rotation)
                     rotation.transform.rotation = Quaternion.Lerp(rotation.transform.rotation, Quaternion.identity, rotateTime * rotationSettleSpeed);
                 rotateTime += Time.deltaTime;
