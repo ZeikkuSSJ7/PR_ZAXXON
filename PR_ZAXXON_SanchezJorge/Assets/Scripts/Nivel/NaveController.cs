@@ -64,10 +64,11 @@ public class NaveController : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * velocidadVertical * movY);
 
             // do lerp to origin
-            if (!Input.GetButton("Horizontal") && !rotateBarrel)
+            if ((movX < 0.01 && movX > -0.01) && !rotateBarrel)
             {
+                Debug.Log("hola");
                 if (rotation)
-                    rotation.transform.rotation = Quaternion.Slerp(rotation.transform.rotation, Quaternion.identity, rotateTime * rotationSettleSpeed);
+                    rotation.transform.rotation = Quaternion.Lerp(rotation.transform.rotation, Quaternion.identity, rotateTime * rotationSettleSpeed);
                 rotateTime += Time.deltaTime;
             }
         }
