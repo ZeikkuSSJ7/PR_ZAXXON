@@ -13,6 +13,6 @@ public class TitleScreenRotateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Quaternion.Euler(0, 0.1f, 0).eulerAngles, Space.World); // rotates spaceship on title screen
+        transform.Rotate(Quaternion.Euler(0, 20 * Time.deltaTime, 0).eulerAngles, Space.World); // rotates spaceship on title screen
     }
 }

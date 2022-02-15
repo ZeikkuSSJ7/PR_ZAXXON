@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenController : MonoBehaviour
 {
-    public Button iniciar, config, highScore;
+    public Button iniciar, config, salir;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +19,9 @@ public class TitleScreenController : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         });
-        highScore.onClick.AddListener(() =>
+        salir.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(3);
+            Application.Quit(0);
         });
     }
  }

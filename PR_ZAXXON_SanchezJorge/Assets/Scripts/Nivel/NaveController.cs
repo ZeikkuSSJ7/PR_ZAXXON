@@ -184,10 +184,11 @@ public class NaveController : MonoBehaviour
     public void Reload()
     {
         // stops obstacles, spawner, plays explosion and disables spaceship before reloading
-        ObstaculoController.velocidad = 0;
+        //ObstaculoController.velocidad = 0;
         SpawnerController.canSpawn = false;
         explosion.Play();
         rotation.GetComponent<MeshRenderer>().enabled = false;
+        rotation.GetComponent<MeshCollider>().enabled = false;
         Invoke("Recarga", 2f);
     }
 

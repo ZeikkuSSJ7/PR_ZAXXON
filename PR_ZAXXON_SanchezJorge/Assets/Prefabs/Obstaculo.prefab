@@ -109,3 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 1
+  particulasMuerte: {fileID: 1450947055112297501, guid: 69fe3b432dc1da04d853a91c8a12188c, type: 3}

@@ -45,7 +45,7 @@ public class HighScoresController : MonoBehaviour
             textos[i].text = i + 1 + "º " + textosConstruidos[i];
         }
 
-        textos[6].text = "Tu: ZXX" + textosConstruidos[6];
+        textos[6].text = "Tu: ZXX " + PlayerPrefs.GetInt("valorPropio");
         btnVolver.onClick.AddListener(() =>
         {
             SceneManager.LoadScene(0);

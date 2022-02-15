@@ -8,6 +8,7 @@ public class RotationTriggerController : MonoBehaviour
     public GameObject parent;
     public DisparadorController disparador;
     public AudioSource powerUp;
+    private Coroutine coroutine;
     private void OnTriggerEnter(Collider other)
     {
         // checks collision with obstacle and reduces life, kills if 0 life
@@ -17,7 +18,10 @@ public class RotationTriggerController : MonoBehaviour
             playerScript.lifes--;
             Destroy(other.gameObject);
             if (playerScript.lifes == 0)
+            {
+                GameManager.dead = true;
                 parent.GetComponent<NaveController>().Reload();
+            }
         }
 
         // activates powerup with collision
@@ -25,7 +29,9 @@ public class RotationTriggerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             GetComponent<AudioSource>().Play();
-            StartCoroutine(disparador.PowerUp());
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            coroutine = StartCoroutine(disparador.PowerUp());
         }
     }
 }

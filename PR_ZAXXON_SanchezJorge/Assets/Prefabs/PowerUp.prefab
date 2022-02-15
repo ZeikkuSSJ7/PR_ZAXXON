@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 0
+  particulasMuerte: {fileID: 0}
 --- !u!114 &-3295579398867931069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 604575953032224660, guid: f97d194db489d4349bcfde2c88100f80, type: 2}
   m_audioClip: {fileID: 8300000, guid: 572cd138ec32a2a49a9e2b5c89e15439, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

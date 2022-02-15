@@ -6,6 +6,7 @@ public class ObstaculoController : MonoBehaviour
 {
     public static float velocidad = 50;
     public int vida;
+    public GameObject particulasMuerte;
     private static float tiempoOffset = 5f;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,8 @@ public class ObstaculoController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.back * Time.deltaTime * velocidad, Space.World); // moves obstacle forward as well as incrementing speed
-        AumentarVelocidad();
+        if (CompareTag("Obstaculo"))
+            AumentarVelocidad();
     }
 
     void AumentarVelocidad()
@@ -36,6 +38,7 @@ public class ObstaculoController : MonoBehaviour
         vida--;
         if (vida <= 0)
         {
+            Instantiate(particulasMuerte, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
