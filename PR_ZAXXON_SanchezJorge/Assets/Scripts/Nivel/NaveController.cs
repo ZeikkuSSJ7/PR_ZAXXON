@@ -63,6 +63,7 @@ public class NaveController : MonoBehaviour
             // same for up and down, - or +
             transform.Translate(Vector3.up * Time.deltaTime * velocidadVertical * movY);
 
+
             // do lerp to origin
             if ((movX < 0.01 && movX > -0.01) && !rotateBarrel)
             {
@@ -86,7 +87,7 @@ public class NaveController : MonoBehaviour
                 rotateCondition = rotation.transform.rotation.z < rotationLimit.z;
             if (rotateCondition)
             {
-                rotation.transform.Rotate(0f, 0f, 5f * -movX);
+                rotation.transform.Rotate(Quaternion.Euler(0, 0, 360 * -movX * Time.deltaTime).eulerAngles);
                 rotateTime = 0;
             }
         }
@@ -112,7 +113,7 @@ public class NaveController : MonoBehaviour
         else
             velocidadVertical = 70;
     }
-
+    float time;
     void BarrelRoll(bool inputPressed, float rotateValue)
     {
         // checks for input and not in time
@@ -144,18 +145,18 @@ public class NaveController : MonoBehaviour
         {
             barrelTime = 0;
             barrelPressed = false;
+            time += Mathf.Abs(rotateValue * 400 * Time.deltaTime);
+            Debug.Log(time);
             // rotate 360 degrees
-            if (countBarrel < 180)
+            if (time < 720)
             {
                 // 2 degrees each time
                 if (rotation)
-                    rotation.transform.Rotate(0f, 0f, rotateValue);
-                countBarrel++;
+                    rotation.transform.Rotate(Quaternion.Euler(0, 0, rotateValue * 400 * Time.deltaTime).eulerAngles);
             } else
             {
                 // reset quaternion to origin
-                if (rotation)
-                    rotation.transform.rotation = Quaternion.identity;
+                time = 0;
                 countBarrel = 0;
                 rotateBarrel = false;
             }
