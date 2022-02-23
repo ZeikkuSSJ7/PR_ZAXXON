@@ -7,9 +7,15 @@ public class HUDController : MonoBehaviour
 {
     public MeshRenderer playerMesh;
     public Text score, level;
+    public Button salir;
     public NaveController playerScript;
     public Image[] lifeImages;
     public static int scoreValue;
+
+    private void Start()
+    {
+        salir.onClick.AddListener(() => Application.Quit());
+    }
 
     // Update is called once per frame
     void Update()
